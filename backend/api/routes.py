@@ -1,3 +1,5 @@
+# backend/api/routes.py
+
 from fastapi import APIRouter, BackgroundTasks
 from pydantic import BaseModel
 import uuid
@@ -6,7 +8,7 @@ from backend.models.job import Job
 from backend.core.db import async_session
 import json
 
-router = APIRouter
+router = APIRouter()
 
 class GenerateRequest(BaseModel):
     prompt: str
@@ -34,3 +36,4 @@ async def get_status(job_id: str):
             "result": job.result_path,
             "error": job.error_message
         }
+

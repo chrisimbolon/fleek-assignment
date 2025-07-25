@@ -7,3 +7,4 @@ python-dotenv
 sqlmodel
 asyncpg
 alembic
+greenlet

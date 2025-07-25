@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from backend.api.routes import router
+from backend.core.db import init_db
 
 app = FastAPI()
 
