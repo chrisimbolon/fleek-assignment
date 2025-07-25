@@ -4,3 +4,6 @@ celery
 httpx
 pydantic
 python-dotenv
+sqlmodel
+asyncpg
+alembic
