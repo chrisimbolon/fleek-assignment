@@ -17,11 +17,14 @@ class GenerateRequest(BaseModel):
 @router.post("/generate")
 async def generate(request: GenerateRequest):
     job_id = str(uuid.uuid4())
+    print(f"[API] Generating job_id={job_id}")
     async with async_session() as session:
         job = Job(id=job_id, prompt=request.prompt, parameters=json.dumps(request.parameters))
         session.add(job)
         await session.commit()
+    print("[API] Submitting task to Celery")
     generate_image_task.delay(job_id, request.prompt, request.parameters)
+    print("[API] Task submitted")
     return {"job_id": job_id}
 
 @router.get("/status/{job_id}")

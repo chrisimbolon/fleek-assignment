@@ -6,5 +6,5 @@ __pycache__/
 *.egg-info/
 .eggs/
 
-docker-compose.override.yml
+results/
 alembic/versions/__pycache__/

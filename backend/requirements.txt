@@ -8,3 +8,5 @@ sqlmodel
 asyncpg
 alembic
 greenlet
+redis
+psycopg2-binary
